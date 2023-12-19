@@ -28,6 +28,14 @@
             </div>
             <div class="align-self-start">
                 <span class="fw-bold">Artists:</span>
+                <span>{{ $comic->artists }}</span>
+            </div>
+            <div class="align-self-start">
+                <span class="fw-bold">Writers:</span>
+                <span>{{ $comic->writers }}</span>
+            </div>
+            {{-- <div class="align-self-start">
+                <span class="fw-bold">Artists:</span>
                     @forelse ($artists as $key => $artist)
                         <span>{{$artist}}</span>
                         @if ($key < (count($artists)-1))
@@ -47,7 +55,7 @@
                     @empty
                         
                     @endforelse
-            </div>
+            </div> --}}
         </div>
       
     </div>

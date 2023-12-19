@@ -225,6 +225,14 @@ class ComicSeeder extends Seeder
             ], 
         ];
         foreach($comics as $comic) {
+            $artists_string = '';
+            foreach($comic['artists'] as $artist) {
+                $artists_string .= $artist. ', ';
+            }
+            $writers_string = '';
+            foreach($comic['writers'] as $writer) {
+                $writers_string .= $writer. ', ';
+            }
             $new_comic = new Comic();
             $new_comic->title = $comic['title'];
             $new_comic->description = $comic['description'];
@@ -233,8 +241,8 @@ class ComicSeeder extends Seeder
             $new_comic->series = $comic['series'];
             $new_comic->sale_date = $comic['sale_date'];
             $new_comic->type = $comic['type'];
-            $new_comic->artists = serialize($comic['artists']);
-            $new_comic->writers = serialize($comic['writers']);
+            $new_comic->artists = $artists_string;
+            $new_comic->writers = $writers_string;
             $new_comic->save();
         }
     }
