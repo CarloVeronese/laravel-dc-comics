@@ -31,19 +31,7 @@ class ComicController extends Controller
     public function store(StoreComicRequest $request)
     {
         $data = $request->all();
-        $new_comic = new Comic();
-        $new_comic->title = $data['title'];
-        $new_comic->description = $data['description'];
-        $new_comic->thumb = $data['thumb'];
-        $new_comic->price = $data['price'];
-        $new_comic->series = $data['series'];
-        $new_comic->sale_date = $data['sale_date'];
-        $new_comic->type = $data['type'];
-        $new_comic->artists = $data['artists'];
-        $new_comic->writers = $data['writers'];
-        $new_comic->artists = 'artists';
-        $new_comic->writers = 'writers';
-        $new_comic->save();
+        $new_comic = Comic::create($data);
         return redirect()->route('comics.show', $new_comic->id);
     }
 
@@ -52,9 +40,6 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        // $artists = unserialize($comic->artists);
-        // $writers = unserialize($comic->writers);
-        // return view('comics.show', compact('comic', 'artists', 'writers'));
         return view('comics.show', compact('comic'));
     }
 

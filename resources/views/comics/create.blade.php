@@ -55,7 +55,6 @@
       <div class="">
         <input type="submit" class="btn btn-primary" value="create">
       </div>
-
     </form>
   </div>
 </section>
