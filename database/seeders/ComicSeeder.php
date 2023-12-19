@@ -225,14 +225,8 @@ class ComicSeeder extends Seeder
             ], 
         ];
         foreach($comics as $comic) {
-            $artists_string = '';
-            foreach($comic['artists'] as $artist) {
-                $artists_string .= $artist. ', ';
-            }
-            $writers_string = '';
-            foreach($comic['writers'] as $writer) {
-                $writers_string .= $writer. ', ';
-            }
+            $artists_string = join(", ",$comic['artists']);
+            $writers_string = join(", ",$comic['artists']);
             $new_comic = new Comic();
             $new_comic->title = $comic['title'];
             $new_comic->description = $comic['description'];
